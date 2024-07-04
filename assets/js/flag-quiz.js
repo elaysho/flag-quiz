@@ -62,7 +62,27 @@ const FLAGS         = [
     'SriLanka',
     'Poland',
     'Iraq',
-    'England'
+    'England',
+    'Chile',
+    'Ecuador',
+    'Ukraine',
+    'Mali',
+    'Morocco',
+    'Argentina',
+    'Zimbabwe',
+    'Angola',
+    'Zambia',
+    'Guinea',
+    'Chad',
+    'SaudiArabia',
+    'Yemen',
+    'Nepal',
+    'Ghana',
+    'Burundi',
+    'Afghanistan',
+    'Somalia',
+    'Taiwan',
+    'Benin',
 ];
 
 let BLANK_FIELD   = `<div>
