@@ -7,7 +7,7 @@ const LEVEL_TIMERS = {
 const LEVEL_STAGES  = {
     easy: 5,
     medium: 10,
-    hard: 15,
+    hard: 20,
 };
 
 const FLAG_PREFIX   = 'assets/images/flags/flag-square-500';
@@ -83,6 +83,36 @@ const FLAGS         = [
     'Somalia',
     'Taiwan',
     'Benin',
+    'DominicanRepublic',
+    'CzechRepublic',
+    'NorthKorea',
+    'Rwanda',
+    'Portugal',
+    'Syria',
+    'Azerbajian',
+    'Malawi',
+    'Jordan',
+    'Israel',
+    'Netherlands',
+    'Hungary',
+    'Tajikistan',
+    'Kazakhstan',
+    'Guatemala',
+    'Togo',
+    'Cambodia',
+    'HongKong',
+    'Bulgaria',
+    'Paraguay',
+    'PapuaNewGuinea',
+    'Senegal',
+    'SouthSudan',
+    'Tunisia',
+    'ElSalvador',
+    'Nicaragua',
+    'Bolivia',
+    'Singapore',
+    'UnitedArabEmirates',
+    'SouthKorea'
 ];
 
 let BLANK_FIELD   = `<div>
@@ -184,7 +214,10 @@ function nextStage() {
         let dividend = LEVEL === 'easy' ? 2 : 3;
         if(Math.random() < 0.5 && (LEVEL === 'easy' || LEVEL === 'medium') && Object.values(ANSWER).length < (STAGE_INFO.length / dividend) ) {
             $('.fill-in-the-blanks').find('div').last().find('input').val(STAGE_INFO.name.charAt(i));
-            $('.fill-in-the-blanks').find('div').last().find('input').removeClass('border-gray-300').addClass('border-green-700');
+            
+            if(LEVEL === 'easy') {
+                $('.fill-in-the-blanks').find('div').last().find('input').removeClass('border-gray-300').addClass('border-green-700');
+            }
 
             ANSWER[i] = STAGE_INFO.name.charAt(i);
         }
