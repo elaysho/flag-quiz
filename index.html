@@ -1,0 +1,90 @@
+<html data-theme="winter">
+    <head>
+        <title> Flag Quiz </title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <!-- Tailwind/DaisyUI CDN -->
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+        <script src="https://cdn.tailwindcss.com"></script>
+
+        <!-- CSS/Scripts -->
+        <link rel="stylesheet" href="assets/css/flag-quiz.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+        <script type="text/javascript" src="assets/js/flag-quiz.js"></script>
+
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:300i,400" rel="stylesheet">
+    </head>
+    <body>
+        <section class="section-container landing-container active">
+            <div class="hero min-h-screen">
+                <div class="max-w-md">
+                    <h1 class="text-5xl font-bold">flag quiz</h1>
+                    <p class="py-6">
+                        Guess the flag's name before the time ends
+                    </p>
+                    <button class="btn btn-primary btn-choose-mode" data-target-container="choose-timer">Get Started</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-container choose-timer hidden">
+            <div class="hero min-h-screen">
+                <div class="hero-content text-center">
+                    <div class="max-w-md">
+                        <h1 class="text-5xl font-bold mb-5">choose a mode</h1>
+
+                        <button class="btn btn-lg btn-secondary btn-start mx-2" data-target-container="game-container" data-game-level="easy">Easy</button>
+                        <button class="btn btn-lg btn-secondary btn-start mx-2" data-target-container="game-container" data-game-level="medium">Medium</button>
+                        <button class="btn btn-lg btn-secondary btn-start mx-2" data-target-container="game-container" data-game-level="hard">Hard</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section-container game-container hidden">
+            <div class="hero min-h-screen">
+                <div class="hero-content text-center">
+                    <div class="">
+                        <div class="mb-1">
+                            <strong>LEVEL <span class="stage">0</span> of <span class="total-stage"></span></strong>
+                        </div>
+                        <div class="mb-2">
+                            guess the flag's name within
+                        </div>
+                        <span class="countdown font-mono text-8xl mb-6">
+                            <span class="timer" style="--value:${counter};"></span>
+                        </span>
+
+                        <center>
+                            <img src="assets/images/flags/flag-square-500.png" class="rounded-lg shadow-2xl text-center flag-container" />
+                            <div class="w-100 answer-field mt-10 text-center">
+                                <div class="flex justify-center mb-2 space-x-2 rtl:space-x-reverse fill-in-the-blanks"></div>
+                            </div>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section-container score-container animate__animated animate__fadeIn hidden">
+            <div class="hero min-h-screen">
+                <div class="hero-content text-center">
+                    <div class="max-w-md">
+                        <div class="mb-2">
+                            <h1 class="font-bold text-5xl"><span class="score">5</span> out of <span class="total-stage">5</span></h1>
+                        </div>
+                        <div class="mb-3">
+                            <strong class="text-3xl score-message">great job! :)</strong>
+                        </div>
+
+                        <button class="btn btn-primary btn-choose-mode" data-target-container="choose-timer">Try Again</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>
