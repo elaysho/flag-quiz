@@ -203,7 +203,7 @@ function nextStage() {
     for(i = 0; i < STAGE_INFO.length; i++) {
         let field = `<div>
                         <label for="code-1" class="sr-only">First code</label>
-                        <input type="text" maxlength="1" data-focus-input-init data-focus-input-next="code-2" id="code-1" class="blank block w-16 h-16 py-3 text-sm font-extrabold text-center text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-primary-500 focus:border-primary-500" style="font-size: 24px;" required />
+                        <input type="text" maxlength="1" data-focus-input-init data-focus-input-next="code-2" id="code-1" class="blank block w-16 h-16 py-3 text-sm font-extrabold text-center text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-primary-500 focus:border-primary-500" style="font-size: 24px; text-transform: uppercase;" required />
                     </div>`;
         
         $('.fill-in-the-blanks').append(field);
@@ -245,6 +245,13 @@ function nextStage() {
     }, 1000);
 
     // Add listener to fields
+    $(document).on('keydown', '.blank', function(e) {
+        let keyCode = e.keyCode || e.which;
+        let char    = String.fromCharCode(keyCode);
+
+        $(this).val(char);
+    });
+
     $(document).on('keyup', '.blank', function(e) {
         checkFields($(this), e, TIMER_INTERVAL);
     });
@@ -280,9 +287,6 @@ function checkFields(field, e, TIMER_INTERVAL) {
 
 function checkAnswer(TIMER_INTERVAL) {
     $('.fill-in-the-blanks').removeClass('animate__animated').removeClass('animate__wobble');
-
-    // console.log(Object.values(ANSWER).length == STAGE_INFO.length);
-    // console.log(ANSWER, STAGE_INFO.name);
 
     if(Object.values(ANSWER).length == STAGE_INFO.length) {
         if(ANSWER.join('').toLowerCase() == STAGE_INFO.name.toLowerCase()) {
