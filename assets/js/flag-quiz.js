@@ -249,6 +249,16 @@ function nextStage() {
         let keyCode = e.keyCode || e.which;
         let char    = String.fromCharCode(keyCode);
 
+        if(keyCode === 8) {
+            let index = $('.fill-in-the-blanks div').index($(this).parent());
+
+            if((index - 1) < -1) {
+                $($('.blank')[index - 1]).focus();
+            }
+            
+            return;
+        }
+
         $(this).val(char);
     });
 
